@@ -20,14 +20,11 @@ The system uses an Arduino nano microcontroller, a Time-of-Flight (ToF) sensor, 
 - *Motor Driver (e.g., ULN2003 or A4988)*: Drives the stepper motor.
 - *Power Supply*: 5V for the motor and microcontroller.
 - Additional components:
-  - USB breakout board.
-  - Pull-up resistors for I2C communication.
-  - Connecting wires, breadboard, or PCB.
+  - Connecting wires, breadboard.
 
 ### 2. Software Requirements
-- *Arduino IDE*: For programming the Arduino.
-- **Python **: For real-time plotting and visualization using libraries such as Matplotlib or PyQt.
-- **ROS2 and Rviz2 **: For advanced visualization.
+- **Arduino IDE**: For programming the Arduino.
+- **Python**: For real-time plotting and visualization using libraries such as Matplotlib or PyQt.
 
 ---
 
@@ -39,7 +36,6 @@ The system uses an Arduino nano microcontroller, a Time-of-Flight (ToF) sensor, 
 
 2. *Visualization*:
    - A Python-based GUI displays the mapped data in real-time.
-   - Option to interface with ROS2 for advanced 3D visualization.
 
 3. *Dynamic Calibration*:
    - Adjusts sensor parameters to improve accuracy under varying ambient conditions.
@@ -108,13 +104,6 @@ while scanning:
 *Solution*: Optimize data processing and communication protocols (e.g., ESP-NOW).
 
 ---
-
-## Evaluation Metrics
-
-1. *Accuracy*: Distance measurement precision 
-2. *Efficiency*: Real-time processing capability.
-3. *Durability*: Robust physical design.
-4. *User Interface*: Intuitive and interactive plotting tool.
 
 
 ## Future Work
