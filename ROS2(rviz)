@@ -1,0 +1,84 @@
+import rclpy
+from rclpy.node import Node
+from sensor_msgs.msg import PointCloud2, PointField
+import struct
+import numpy as np
+
+class LidarPublisher(Node):
+    def __init__(self):
+        super().__init__("lidar_publisher")
+
+        # Publisher for the PointCloud2 data
+        self.publisher = self.create_publisher(PointCloud2, "lidar_points", 10)
+
+        # Timer to publish data periodically
+        self.timer = self.create_timer(1.0, self.publish_lidar_data)  # Publish every second
+
+    def generate_lidar_data(self):
+        """
+        Simulates Lidar data in the form of angle-distance pairs.
+        Returns a list of 3D points (x, y, z).
+        """
+        angles = np.arange(0, 361, 45)  # Angles from 0° to 360° in 45° steps
+        distances = [500, 700, 600, 400, 550, 450, 800, 750, 650]  # Sample distances in mm
+        points = []
+
+        for angle, distance in zip(angles, distances):
+            if distance == float('inf'):  # Skip "Out of Range" distances
+                continue
+
+            # Convert polar to Cartesian coordinates
+            theta = np.radians(angle)
+            x = distance * np.cos(theta) / 1000.0  # Convert mm to meters
+            y = distance * np.sin(theta) / 1000.0
+            z = 0.0  # Assume a 2D plane for Lidar points
+            points.append([x, y, z])
+
+        return points
+
+    def publish_lidar_data(self):
+        """
+        Publishes the generated Lidar data as a PointCloud2 message.
+        """
+        points = self.generate_lidar_data()
+
+        # Create the PointCloud2 message
+        header = self.get_clock().now().to_msg()
+        header.frame_id = "lidar_frame"
+
+        # Define PointCloud2 fields
+        fields = [
+            PointField(name="x", offset=0, datatype=PointField.FLOAT32, count=1),
+            PointField(name="y", offset=4, datatype=PointField.FLOAT32, count=1),
+            PointField(name="z", offset=8, datatype=PointField.FLOAT32, count=1),
+        ]
+
+        # Pack the points into binary data
+        point_data = []
+        for point in points:
+            point_data.append(struct.pack("fff", *point))
+
+        # Create and publish the PointCloud2 message
+        pointcloud = PointCloud2(
+            header=header,
+            height=1,
+            width=len(points),
+            fields=fields,
+            is_bigendian=False,
+            point_step=12,  # 3 floats * 4 bytes each
+            row_step=12 * len(points),
+            data=b"".join(point_data),
+            is_dense=True,
+        )
+        self.publisher.publish(pointcloud)
+        self.get_logger().info(f"Published {len(points)} Lidar points.")
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = LidarPublisher()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == "__main__":
+    main()
