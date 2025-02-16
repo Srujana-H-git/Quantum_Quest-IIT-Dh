@@ -58,24 +58,6 @@ The system uses an Arduino nano microcontroller, a Time-of-Flight (ToF) sensor, 
 
 ---
 
-## Circuit Diagram
-
-### Key Connections:
-1. *Arduino*:
-   - SDA: GPIO21
-   - SCL: GPIO22
-2. *ToF Sensor*:
-   - VCC: 3.3V
-   - GND: GND
-3. *Stepper Motor Driver*:
-   - Connect IN1-IN4 to Arduino GPIO pins.
-   - Connect motor wires to OUT1-OUT4.
-4. *Power*:
-   - Use USB breakout board for external 5V supply if needed.
-
-
----
-
 ## Pseudo Code
 python
 initialize ToF sensor and stepper motor
