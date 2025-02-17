@@ -58,22 +58,6 @@ The system uses an Arduino nano microcontroller, a Time-of-Flight (ToF) sensor, 
 
 ---
 
-## Pseudo Code
-python
-initialize ToF sensor and stepper motor
-set rotation speed and scanning resolution
-
-while scanning:
-    for each angle in range(0, 360, resolution):
-        measure distance using ToF sensor
-        record (angle, distance)
-    filter data to remove noise
-    convert (angle, distance) to Cartesian coordinates
-    update real-time plot
-
-
----
-
 ## Challenges and Solutions
 
 ### Challenge: Limited accuracy of low-cost ToF sensors.
