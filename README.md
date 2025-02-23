@@ -1,4 +1,4 @@
-# Low-Cost 2D LiDAR System using TOF Sensor
+# Low-Cost 2D LiDAR using TOF Sensor
 
 ## Overview
 This project involves designing and implementing a low-cost 2D LiDAR system capable of:
