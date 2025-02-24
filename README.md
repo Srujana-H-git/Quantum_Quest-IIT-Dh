@@ -67,7 +67,7 @@ The system uses an Arduino nano microcontroller, a Time-of-Flight (ToF) sensor, 
 *Solution*: Use a balanced setup and ensure proper alignment of the motor and sensor.
 
 ### Challenge: Real-time visualization latency.
-*Solution*: Optimize data processing and communication protocols (e.g., ESP-NOW).
+*Solution*: Optimize data processing and communication protocols.
 
 ---
 
