@@ -9,8 +9,6 @@ This project involves designing and implementing a low-cost 2D LiDAR system capa
 
 The system uses an Arduino nano microcontroller, a Time-of-Flight (ToF) sensor, and a stepper motor to create a functional LiDAR solution. This README serves as a guide for understanding the project and replicating the setup.
 
----
-
 ## Components
 
 ### 1. Hardware Components
@@ -26,8 +24,6 @@ The system uses an Arduino nano microcontroller, a Time-of-Flight (ToF) sensor, 
 - **Arduino IDE**: For programming the Arduino.
 - **Python**: For real-time plotting and visualization using libraries such as Matplotlib or PyQt.
 
----
-
 ## Features
 
 1. *2D Mapping*:
@@ -39,8 +35,6 @@ The system uses an Arduino nano microcontroller, a Time-of-Flight (ToF) sensor, 
 
 3. *Dynamic Calibration*:
    - Adjusts sensor parameters to improve accuracy under varying ambient conditions.
-
----
 
 ## System Architecture
 
@@ -56,8 +50,6 @@ The system uses an Arduino nano microcontroller, a Time-of-Flight (ToF) sensor, 
    - Python-based real-time plotting.
    - ROS2 integration for advanced visualization.
 
----
-
 ## Challenges and Solutions
 
 ### Challenge: Limited accuracy of low-cost ToF sensors.
@@ -68,9 +60,6 @@ The system uses an Arduino nano microcontroller, a Time-of-Flight (ToF) sensor, 
 
 ### Challenge: Real-time visualization latency.
 *Solution*: Optimize data processing and communication protocols.
-
----
-
 
 ## Future Work
 
