@@ -11,6 +11,7 @@ The system uses an Arduino nano microcontroller, a Time-of-Flight (ToF) sensor, 
 
 ## Components
 
+
 ### 1. Hardware Components
 - *Arduino nano Microcontroller*: For processing sensor data and controlling the motor.
 - *ToF Sensor (e.g., VL53L0X)*: Measures distances in real-time.
