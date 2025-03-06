@@ -66,4 +66,4 @@ The system uses an Arduino nano microcontroller, a Time-of-Flight (ToF) sensor, 
 
 1. Improve dynamic calibration under extreme environmental conditions.
 2. Explore higher-resolution ToF sensors for better accuracy.
-3. Enhance the visualization interface with additional features.
+
